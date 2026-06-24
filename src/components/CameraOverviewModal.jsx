@@ -33,7 +33,7 @@ export default function CameraOverviewModal({
                 {cam.status === 'offline' ? (
                   <CameraOff className="w-6 h-6 text-slate-700" />
                 ) : (
-                  <img src={cam.url || CONTAINER_IMAGES.main} alt={cam.name} className="w-full h-full object-cover" />
+                  <img src={cam.url || CONTAINER_IMAGES.main} alt={cam.name} className="w-full h-full object-contain" />
                 )}
               </div>
               <div className="p-1.5 flex items-center justify-between bg-slate-900">
@@ -47,3 +47,4 @@ export default function CameraOverviewModal({
     </div>
   );
 }
+

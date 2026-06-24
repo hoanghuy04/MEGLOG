@@ -1,5 +1,6 @@
 import React from 'react';
 import { User, Eye, EyeOff } from 'lucide-react';
+import bgImage from '../assets/background.webp';
 
 export default function LoginScreen({
   username,
@@ -12,8 +13,17 @@ export default function LoginScreen({
   loginError
 }) {
   return (
-    <div className="flex-1 flex flex-col justify-center items-center p-6 bg-slate-50 relative">
-      <div className="w-full max-w-sm bg-white p-6 rounded-2xl border border-slate-200 shadow-sm text-left">
+    <div className="flex-1 flex flex-col justify-center items-center p-6 bg-slate-900 relative overflow-hidden">
+      {/* Background Image with blur and dark overlay */}
+      <div
+        className="absolute inset-0 bg-cover bg-center filter blur-[2px] scale-105 opacity-40 z-0 pointer-events-none"
+        style={{ backgroundImage: `url(${bgImage})` }}
+      />
+
+      {/* Semi-transparent overlay */}
+      <div className="absolute inset-0 bg-slate-950/30 z-0 pointer-events-none" />
+
+      <div className="w-full max-w-sm bg-white/95 backdrop-blur-md p-6 rounded-2xl border border-slate-200/50 shadow-2xl text-left z-10 relative">
         <div className="text-center mb-6">
           <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 mb-2.5">
             <span className="text-lg font-black tracking-wider">V</span>
@@ -77,7 +87,7 @@ export default function LoginScreen({
             setPassword('vtos2026');
             setTimeout(() => {
               // Trigger click simulated by fake login submit
-              const mockEvent = { preventDefault: () => {} };
+              const mockEvent = { preventDefault: () => { } };
               handleLogin(mockEvent);
             }, 50);
           }}

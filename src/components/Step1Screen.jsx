@@ -68,7 +68,7 @@ export default function Step1Screen({
                   >
                     {imgUrl ? (
                       <>
-                        <img src={imgUrl} alt={`Góc ${index + 1}`} className="w-full h-full object-cover transition duration-300 group-hover:scale-105" />
+                        <img src={imgUrl} alt={`Góc ${index + 1}`} className="w-full h-full object-contain transition duration-300 group-hover:scale-105" />
                         <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition"></div>
                         <div className="absolute bottom-2 left-2 bg-emerald-500 text-slate-950 px-1.5 py-0.5 rounded text-[8px] font-extrabold tracking-wide">
                           ĐÃ CHỤP
@@ -126,7 +126,7 @@ export default function Step1Screen({
                     }}
                     className="aspect-[4/3] bg-slate-100 flex items-center justify-center relative overflow-hidden cursor-pointer"
                   >
-                    <img src={imgUrl} alt={`Interior ${idx + 1}`} className="w-full h-full object-cover" />
+                    <img src={imgUrl} alt={`Interior ${idx + 1}`} className="w-full h-full object-contain" />
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
@@ -208,3 +208,4 @@ export default function Step1Screen({
     </div>
   );
 }
+

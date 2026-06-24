@@ -47,7 +47,7 @@ export default function MonitorScreen({
               <img
                 src={cameras[selectedCam - 1]?.url || CONTAINER_IMAGES.main}
                 alt="Live Cam Stream"
-                className="w-full h-full object-cover opacity-85"
+                className="w-full h-full object-contain opacity-85"
               />
               
               <div className="absolute top-3 left-3 bg-slate-950/80 px-2 py-1 rounded text-[10px] font-mono text-slate-300 flex items-center gap-2 border border-slate-800">
@@ -102,7 +102,7 @@ export default function MonitorScreen({
                     </div>
                   ) : (
                     <>
-                      <img src={cam.url || CONTAINER_IMAGES.main} alt={cam.name} className="w-full h-full object-cover opacity-60" />
+                      <img src={cam.url || CONTAINER_IMAGES.main} alt={cam.name} className="w-full h-full object-contain opacity-60" />
                       {isActive && (
                         <div className="absolute inset-0 bg-emerald-500/10 flex items-center justify-center">
                           <span className="bg-emerald-500 text-slate-950 font-black text-[7px] px-1 py-0.2 rounded">
@@ -192,3 +192,4 @@ export default function MonitorScreen({
     </div>
   );
 }
+

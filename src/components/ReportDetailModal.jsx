@@ -104,7 +104,7 @@ export default function ReportDetailModal({
               <div key={idx} className="bg-white rounded-lg overflow-hidden border border-slate-200 shadow-sm flex flex-col">
                 <div className="aspect-[4/3] bg-slate-100 flex-1">
                   {img ? (
-                    <img src={img} alt={`Góc ${idx + 1}`} className="w-full h-full object-cover" />
+                    <img src={img} alt={`Góc ${idx + 1}`} className="w-full h-full object-contain" />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-slate-400 text-[10px]">
                       Trống
@@ -120,7 +120,7 @@ export default function ReportDetailModal({
             {interiorList.map((img, idx) => (
               <div key={idx} className="bg-white rounded-lg overflow-hidden border border-slate-200 shadow-sm flex flex-col">
                 <div className="aspect-[4/3] bg-slate-100 flex-1">
-                  <img src={img} alt={`Nội thất ${idx + 1}`} className="w-full h-full object-cover" />
+                  <img src={img} alt={`Nội thất ${idx + 1}`} className="w-full h-full object-contain" />
                 </div>
                 <div className="p-1.5 bg-slate-50 text-center text-[9px] font-bold text-slate-600 border-t border-slate-200">
                   Nội thất {idx + 1}
@@ -148,3 +148,4 @@ export default function ReportDetailModal({
     </div>
   );
 }
+

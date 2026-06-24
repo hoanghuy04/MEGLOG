@@ -204,7 +204,7 @@ export default function ImageEditScreen({
             <img 
               src={editingImageUrl} 
               alt="Editing preview" 
-              className="w-full h-full object-cover transition-transform duration-200"
+              className="w-full h-full object-contain transition-transform duration-200"
               style={{
                 transform: `rotate(${rotation}deg) scaleX(${isFlipped ? -1 : 1})`,
                 maxHeight: '100%',
@@ -385,3 +385,4 @@ export default function ImageEditScreen({
     </div>
   );
 }
+
