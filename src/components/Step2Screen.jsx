@@ -40,7 +40,7 @@ export default function Step2Screen({
 
         <form onSubmit={handleFormSubmit} className="space-y-4">
 
-          <div className="grid grid-cols-3 gap-3 text-left">
+          <div className="grid grid-cols-2 gap-3 text-left">
 
             <div className="col-span-2">
               <label className="block text-[10px] font-extrabold text-slate-500 uppercase tracking-wider mb-1">
@@ -158,7 +158,7 @@ export default function Step2Screen({
               </select>
             </div>
 
-            <div>
+            <div className="col-span-2">
               <label className="block text-[10px] font-extrabold text-slate-500 uppercase tracking-wider mb-1">
                 * PHÂN LOẠI CONT
               </label>
