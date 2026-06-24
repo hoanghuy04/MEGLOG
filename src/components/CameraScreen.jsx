@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ArrowLeft, Zap, Grid, RotateCw, Camera } from 'lucide-react';
+import { ArrowLeft, Zap, Grid, RotateCw, Camera, CameraOff } from 'lucide-react';
 
 export default function CameraScreen({
   capturingSlotIndex,
@@ -67,7 +67,6 @@ export default function CameraScreen({
         if (videoRef.current) {
           videoRef.current.srcObject = mediaStream;
         }
-        setStream(mediaStream);
         activeStream = mediaStream;
       } catch (err) {
         console.warn("Camera hardware not available or permission denied, using visual mock fallback.", err);
@@ -141,11 +140,18 @@ export default function CameraScreen({
       {/* 2. CAMERA VIDEO VIEWPORT & GRID/TARGET OVERLAY */}
       <div className="flex-1 relative bg-slate-950 overflow-hidden flex items-center justify-center">
         {cameraError ? (
-          <img
-            src={getViewfinderImage()}
-            alt="Viewfinder Mock Target"
-            className="w-full h-full object-cover"
-          />
+          <div className="absolute inset-0 bg-slate-950 flex flex-col items-center justify-center p-6 text-center z-10">
+            <div className="w-16 h-16 rounded-full bg-red-500/10 text-red-500 flex items-center justify-center mb-4 border border-red-500/25">
+              <CameraOff className="w-8 h-8" />
+            </div>
+            <h4 className="text-sm font-black text-white uppercase tracking-wider mb-2">LỖI KẾT NỐI CAMERA</h4>
+            <p className="text-xs text-slate-400 max-w-[280px] leading-relaxed mb-4">
+              Không thể truy cập camera thực tế của thiết bị. Vui lòng kiểm tra quyền truy cập camera trong cài đặt trình duyệt của bạn.
+            </p>
+            <span className="text-[9px] bg-slate-900 text-slate-500 px-3 py-1.5 rounded-full border border-slate-800 font-semibold tracking-wide uppercase">
+              Bạn vẫn có thể chụp để sử dụng ảnh giả lập
+            </span>
+          </div>
         ) : (
           <video
             ref={videoRef}
